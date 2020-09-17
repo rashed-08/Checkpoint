@@ -24,8 +24,21 @@ after_success:
   - docker push stephengrider/multi-worker
 
 deploy:
+
+#  provider: elasticbeanstalk
+  region: 'us-east-1'
+#  app: 'multi-docker'
+#  env: 'MultiDocker-env'
+#  bucket_name: 'elasticbeanstalk-us-east-1-923445559289'
+#  bucket_path: 'docker-multi'
+#  on:
+#    branch: master
+#  access_key_id: $AWS_ACCESS_KEY
+#  secret_access_key: $AWS_SECRET_KEY
+
+# I'll deploy myself to heroku, so here I changed the config file
   provider: heroku 
   api_key: $Heroku_Key
-  app:  docker-react-apps
+  app: docker-react-apps
   on:
     repo: rashed-08/docker-react
